@@ -1,21 +1,26 @@
 #include <stdio.h>
+#include <stdlib.h>  // For exit()
 
 #define N 7
 int stack[N], top = -1;
 
 void push() {
     if (top == (N - 1)) {
-        printf("Stack overflow!\n");
+        printf("Stack Overflow! Cannot push more elements.\n");
     } else {
         top++;
         printf("Enter data: ");
-        scanf("%d", &stack[top]);
+        if (scanf("%d", &stack[top]) != 1) {
+            printf("Invalid input! Please enter a valid integer.\n");
+            top--;  // Prevent incorrect value storage
+            while (getchar() != '\n');  // Flush input buffer
+        }
     }
 }
 
 void pop() {
     if (top == -1) {
-        printf("Stack is empty!\n");
+        printf("Stack Underflow! Stack is empty.\n");
     } else {
         printf("Popped element: %d\n", stack[top]);
         top--;
@@ -34,9 +39,9 @@ void display() {
     if (top == -1) {
         printf("Stack is empty!\n");
     } else {
-        printf("Stack elements:\n");
+        printf("Stack elements (Top to Bottom):\n");
         for (int i = top; i >= 0; i--) {
-            printf("%d\n", stack[i]);
+            printf("  %d\n", stack[i]);
         }
     }
 }
@@ -44,16 +49,21 @@ void display() {
 int main() {
     int choice;
     while (1) {
-        printf("\nChoose operation:\n");
+        printf("\nChoose an operation:\n");
         printf("1. Push\n2. Pop\n3. Peek\n4. Display\n5. Exit\n>>> ");
-        scanf("%d", &choice);
+        
+        if (scanf("%d", &choice) != 1) {
+            printf("Invalid input! Please enter a number.\n");
+            while (getchar() != '\n');  // Flush input buffer
+            continue;
+        }
 
         switch (choice) {
             case 1: push(); break;
             case 2: pop(); break;
             case 3: peek(); break;
             case 4: display(); break;
-            case 5: return 0;  // Exit the program
+            case 5: printf("Exiting program. Goodbye!\n"); exit(0);
             default: printf("Invalid choice! Try again.\n");
         }
     }
