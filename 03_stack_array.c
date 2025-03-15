@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <stdlib.h>  // For exit()
+#include <stdlib.h>
 
 #define N 7
 int stack[N], top = -1;
@@ -12,8 +12,8 @@ void push() {
         printf("Enter data: ");
         if (scanf("%d", &stack[top]) != 1) {
             printf("Invalid input! Please enter a valid integer.\n");
-            top--;  // Prevent incorrect value storage
-            while (getchar() != '\n');  // Flush input buffer
+            top--;
+            while (getchar() != '\n');
         }
     }
 }
