@@ -1,1 +1,1 @@
-# data_structure<br>Author - Gaurav Kumar
+# data_structure<br> - Gaurav Kumar
