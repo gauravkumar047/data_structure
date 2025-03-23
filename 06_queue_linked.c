@@ -42,7 +42,7 @@ void dequeue() {
     }
 }
 
-void front() {
+void peek() {
     if (front == NULL) {
         printf("Queue is empty!\n");
     } else {
@@ -77,7 +77,7 @@ int main() {
         switch (choice) {
             case 1: enqueue(); break;
             case 2: dequeue(); break;
-            case 3: front(); break;
+            case 3: peek(); break;
             case 4: display(); break;
             case 5:
                 printf("Exiting program... Goodbye!\n");

@@ -29,7 +29,7 @@ void dequeue(){
         front++;
     }
 }
-void front(){
+void peek(){
     if(rear==-1 && front==-1){
         printf("Queue is empty!\n");
     }else{
@@ -64,7 +64,7 @@ int main(){
                 dequeue();
                 break;
             case 3:
-                front();
+                peek();
                 break;
             case 4:
                 display();
