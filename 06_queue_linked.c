@@ -42,7 +42,7 @@ void dequeue() {
     }
 }
 
-void peek() {
+void front() {
     if (front == NULL) {
         printf("Queue is empty!\n");
     } else {
@@ -67,7 +67,7 @@ void display() {
 int main() {
     int choice;
     while (1) {
-        printf("\nChoose operation:\n1.Enqueue\n2.Dequeue\n3.Peek\n4.Display\n5.Exit\n>>> ");
+        printf("\nChoose operation:\n1.Enqueue\n2.Dequeue\n3.Front\n4.Display\n5.Exit\n>>> ");
         if (scanf("%d", &choice) != 1) {
             printf("Invalid input! Please enter a number.\n");
             while (getchar() != '\n');
@@ -77,7 +77,7 @@ int main() {
         switch (choice) {
             case 1: enqueue(); break;
             case 2: dequeue(); break;
-            case 3: peek(); break;
+            case 3: front(); break;
             case 4: display(); break;
             case 5:
                 printf("Exiting program... Goodbye!\n");
